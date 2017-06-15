@@ -1,0 +1,48 @@
+{
+  "name": "typescript-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run build:live",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
+    "test": "./node_modules/.bin/tsc && nyc mocha build/test --ui mocha-typescript --require source-map-support/register --timeout=60000",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "tslint src",
+    "precommit": "npm run lint",
+    "commit": "git-cz",
+    "commitmsg": "validate-commit-msg"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.0",
+    "@types/node": "7.0.28",
+    "@types/supertest": "^2.0.0",
+    "chai": "^4.0.2",
+    "codecov": "^2.2.0",
+    "cz-conventional-changelog": "^2.0.0",
+    "husky": "^0.13.4",
+    "mocha": "^3.4.2",
+    "mocha-typescript": "^1.1.4",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.0.2",
+    "source-map-support": "^0.4.15",
+    "supertest": "^3.0.0",
+    "ts-node": "^3.0.6",
+    "tslint": "^5.4.3",
+    "tslint-config-standard": "^6.0.1",
+    "typescript": "^2.3.4",
+    "validate-commit-msg": "^2.12.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "nyc": {
+    "cache": true,
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
