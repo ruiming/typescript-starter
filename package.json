@@ -8,7 +8,7 @@
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- -r tsconfig-paths/register ./src/index.ts",
     "test": "nyc mocha --compilers ts:ts-node/register -r tsconfig-paths/register src/test --ui mocha-typescript --require source-map-support/register --timeout=60000",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "tslint src",
+    "lint": "tslint src/**/*.ts",
     "precommit": "npm run lint",
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg"
