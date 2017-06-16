@@ -8,4 +8,4 @@ RUN yarn
 EXPOSE 8000
 
 ENTRYPOINT yarn start
-# ENTRYPOINT ./node_modules/.bin/tsc && node build/src/index.js
+# ENTRYPOINT ./node_modules/.bin/tsc && node -r tsconfig-paths/register build/src/index.js
