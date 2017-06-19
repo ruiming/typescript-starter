@@ -4,14 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build:live",
+    "start": "tsc && npm run link && node ./build/index.js",
+    "dev": "npm run build:live",
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- -r tsconfig-paths/register ./src/index.ts",
     "test": "nyc mocha --compilers ts:ts-node/register -r tsconfig-paths/register src/test --ui mocha-typescript --require source-map-support/register --timeout=60000",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "tslint src/**/*.ts",
     "precommit": "npm run lint",
     "commit": "git-cz",
-    "commitmsg": "validate-commit-msg"
+    "commitmsg": "validate-commit-msg",
+    "link": "ln -nsf ../build node_modules/app"
   },
   "devDependencies": {
     "@types/chai": "^4.0.0",
@@ -31,7 +33,7 @@
     "tsconfig-paths": "^2.2.0",
     "tslint": "^5.4.3",
     "tslint-microsoft-contrib": "^5.0.0",
-    "typescript": "^2.3.4",
+    "typescript": "2.3.4",
     "validate-commit-msg": "^2.12.2"
   },
   "config": {
