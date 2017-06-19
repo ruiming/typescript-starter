@@ -33,7 +33,11 @@
         "missing-jsdoc": [
             false
         ],
-        // 关闭以下规则
+        "no-unused-variable": true,
+        // 关闭该规则
+        "ordered-imports": [
+            false
+        ],
         "no-import-side-effect": [
             false
         ],
@@ -51,7 +55,9 @@
         ],
         "member-access": [
             false
-        ]
+        ],
+        "newline-before-return": false,
+        "no-parameter-properties": false
     },
     "rulesDirectory": []
 }
