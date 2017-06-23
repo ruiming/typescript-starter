@@ -1,12 +1,12 @@
 ## TypeScript-starter
 
-1. 使用 mocha 和 mocha-typescript 作为测试框架
+1. 使用 mocha 作为测试框架
 
 2. 使用 chai 作为断言库
 
 3. 使用 Angular Git Commit Message 规范
 
-4. 使用 TSLint 和 tslint-microsoft-contrib 进行代码风格约束
+4. 使用 TSLint 和 tslint-config-standard 进行代码风格约束
 
 5. 使用 husky 进行 lint 检查和 commit msg 检查
 
