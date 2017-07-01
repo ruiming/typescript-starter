@@ -14,7 +14,7 @@
 
 7. 使用 nodemon 作为开发启动器
 
-8. 使用 yarn 和 npm5 构建
+8. 使用 yarn 构建
 
 9. 默认开启 TypeScript Decorator 支持
 

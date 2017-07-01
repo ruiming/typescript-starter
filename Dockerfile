@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:8.1
 MAINTAINER ruiming <ruiming.zhuang@gmail.com>
 
 WORKDIR /app
@@ -7,4 +7,4 @@ RUN yarn
 
 EXPOSE 8000
 
-ENTRYPOINT yarn run prod
+ENTRYPOINT yarn start
