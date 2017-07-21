@@ -5,50 +5,64 @@
   "author": "ruiming <ruiming.zhuang@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && npm run link && node ./build/index.js",
+    "start": "tsc && node ./build/index.js",
     "dev": "npm run build:live",
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- --require tsconfig-paths/register ./src/index.ts",
-    "mock": "./node_modules/.bin/ts-node --require tsconfig-paths/register ./src/task/mock.ts",
-    "test": "nyc mocha --compilers ts:ts-node/register src/test --ui mocha-typescript --require source-map-support/register --require tsconfig-paths/register --timeout=60000",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
+    "test": "nyc mocha --compilers ts:espower-typescript/guess src/test/**/*.ts --require source-map-support/register --timeout=60000",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "tslint --type-check --fix --project tsconfig.json src/**/*.ts",
-    "precommit": "npm run lint",
+    "precommit": "lint-staged",
     "commit": "git-cz",
-    "commitmsg": "validate-commit-msg",
-    "link": "ln -nsf ../build node_modules/app"
+    "commitmsg": "validate-commit-msg"
   },
   "devDependencies": {
-    "@types/chai": "^4.0.0",
-    "@types/chai-as-promised": "^0.0.31",
+    "@types/mocha": "^2.2.41",
     "@types/node": "7.0.28",
+    "@types/power-assert": "^1.4.29",
     "@types/supertest": "^2.0.0",
-    "chai": "^4.0.2",
-    "chai-as-promised": "^7.0.0",
     "codecov": "^2.2.0",
     "cz-conventional-changelog": "^2.0.0",
+    "espower-typescript": "^8.0.2",
     "husky": "^0.13.4",
+    "lint-staged": "^4.0.2",
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0",
     "nyc": "^11.0.2",
+    "power-assert": "^1.4.4",
     "source-map-support": "^0.4.15",
     "supertest": "^3.0.0",
     "ts-node": "^3.0.6",
-    "tsconfig-paths": "^2.2.0",
     "tslint": "^5.4.3",
     "tslint-config-standard": "^6.0.1",
     "typescript": "^2.4.0",
     "validate-commit-msg": "^2.12.2"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --type-check --fix --project tsconfig.json",
+      "git add"
+    ]
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
   },
+  "directories": {
+    "test": "src/test"
+  },
   "nyc": {
     "cache": true,
     "reporter": [
       "lcov",
       "text"
+    ],
+    "extension": [
+      ".js",
+      ".ts"
+    ],
+    "exclude": [
+      "src/test"
     ]
   }
 }
