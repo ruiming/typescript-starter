@@ -1,15 +1,14 @@
-FROM node:8.1
+FROM node:8.4.0
 MAINTAINER ruiming <ruiming.zhuang@gmail.com>
 
-RUN mkdir /app
-COPY ./package.json /app
-COPY ./yarn.lock /app
-RUN cd /app && yarn
-
-COPY ./ /app
-
 WORKDIR /app
+COPY ./package.json ./
+COPY ./yarn.lock ./
+
+RUN yarn
+COPY ./ ./
+
+RUN yarn run build
 
 EXPOSE 8000
-
 ENTRYPOINT yarn start
