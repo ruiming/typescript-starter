@@ -36,19 +36,17 @@
     "nodemon": "^1.11.0",
     "nyc": "^11.0.2",
     "power-assert": "^1.4.4",
+    "prettier": "1.7.4",
     "source-map-support": "^0.4.15",
     "supertest": "^3.0.0",
     "ts-node": "^3.0.6",
     "tslint": "^5.4.3",
-    "tslint-config-standard": "^6.0.1",
+    "tslint-config-prettier": "^1.6.0",
     "typescript": "^2.4.0",
     "validate-commit-msg": "^2.12.2"
   },
   "lint-staged": {
-    "*.ts": [
-      "tslint --fix --project tsconfig.json",
-      "git add"
-    ]
+    "*.{ts,js,json,css}": ["prettier --write", "git add"]
   },
   "config": {
     "commitizen": {
@@ -60,16 +58,8 @@
   },
   "nyc": {
     "cache": true,
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "extension": [
-      ".js",
-      ".ts"
-    ],
-    "exclude": [
-      "test"
-    ]
+    "reporter": ["lcov", "text"],
+    "extension": [".js", ".ts"],
+    "exclude": ["test"]
   }
 }

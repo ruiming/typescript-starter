@@ -1,14 +1,7 @@
 {
-    "defaultSeverity": "warning",
-    "extends": [
-        "tslint-config-standard"
-    ],
-    "rules": {
-        "typedef": [
-            true,
-            "call-signature",
-            "parameter",
-            "member-variable-declaration"
-        ]
-    }
+  "defaultSeverity": "warning",
+  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "rules": {
+    "no-implicit-dependencies": [true, "dev"]
+  }
 }
