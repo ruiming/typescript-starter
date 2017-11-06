@@ -1,4 +1,4 @@
-FROM node:8.4.0
+FROM node:8.6-alpine
 MAINTAINER ruiming <ruiming.zhuang@gmail.com>
 
 WORKDIR /app
