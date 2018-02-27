@@ -1,16 +1,5 @@
 {
   "printWidth": 120,
   "semi": false,
-  "singleQuote": true,
-  "parser": "typescript",
-  "overrides": [
-    {
-      "files": ".prettierrc",
-      "options": { "parser": "json" }
-    },
-    {
-      "files": "*.json",
-      "options": { "parser": "json" }
-    }
-  ]
+  "singleQuote": true
 }
